@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import { useAccount } from "wagmi";
 import { ethers } from "ethers";
@@ -23,8 +24,8 @@ export const DonationForm = () => {
       setIsLoading(false);
       return;
     }
-    const maticAmount = ethers.utils.parseUnits(amount, "ether");
-    console.log(maticAmount);
+    const pwrAmount = ethers.utils.parseUnits(amount, "ether");
+    console.log(pwrAmount);
     try {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const signer = provider.getSigner();
@@ -34,13 +35,13 @@ export const DonationForm = () => {
         signer
       );
       const tx = await contract.buyCoffee(name, message, {
-        value: maticAmount,
+        value: pwrAmount,
       });
       await tx.wait();
       Swal.fire({
         icon: "success",
         title: "Donated successfully",
-        html: `<a href="https://mumbai.polygonscan.com//tx/${tx.hash}">View on explorer</a>`,
+        html: `<a href="https://evmexplorer.pwrlabs.io/tx/${tx.hash}">View on explorer</a>`,
       }).then(window.location.reload(false));
       setIsLoading(false);
     } catch (error) {
@@ -65,7 +66,7 @@ export const DonationForm = () => {
               width={100}
             />
             <h2 className="mt-6 text-center text-3xl tracking-tight font-bold text-gray-900">
-              Donate to Mohit
+              Donate to Sambit
             </h2>
           </div>
           <div className="mt-8 space-y-6">
@@ -99,14 +100,14 @@ export const DonationForm = () => {
               </div>
               <div>
                 <label htmlFor="amount" className="sr-only">
-                  Amount in MATIC
+                  Amount in PWR
                 </label>
                 <input
                   type="number"
                   autoComplete="amount"
                   required
                   className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                  placeholder="Amount (In MATIC)"
+                  placeholder="Amount (In PWR)"
                   onChange={(e) => setAmount(e.target.value)}
                 />
               </div>

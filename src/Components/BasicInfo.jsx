@@ -11,7 +11,7 @@ export const BasicInfo = () => {
 
   const getFunds = async () => {
     const provider = new ethers.providers.JsonRpcProvider(
-      `https://polygon-mumbai.g.alchemy.com/v2/${process.env.REACT_APP_ALCHEMY_KEY}`
+      `https://evmrpc.pwrlabs.io/`
     );
     const contract = new ethers.Contract(
       process.env.REACT_APP_CONTRACT_ADDRESS,
@@ -38,7 +38,7 @@ export const BasicInfo = () => {
     setIsLoading(true);
     if (address) {
       const provider = new ethers.providers.JsonRpcProvider(
-        `https://polygon-mumbai.g.alchemy.com/v2/${process.env.REACT_APP_ALCHEMY_KEY}`
+        `https://evmrpc.pwrlabs.io/`
       );
       const contract = new ethers.Contract(
         process.env.REACT_APP_CONTRACT_ADDRESS,
@@ -63,7 +63,7 @@ export const BasicInfo = () => {
   return (
     <>
       <div className="flex items-center justify-start pt-10 pb-3">
-        <h2 style={{ fontSize: "26px" }}>Total Donation Yet : {total ? total : 'Fetching...'} MATIC</h2>
+        <h2 style={{ fontSize: "26px" }}>Total Donation Yet : {total ? total : 'Fetching...'} PWR</h2>
       </div>
       <div className="">
         <label htmlFor="message">Get Donation Data For Address</label>
@@ -85,7 +85,7 @@ export const BasicInfo = () => {
         <div>
           <h2>
             {singleDonation
-              ? `${name} has donated ${singleDonation} MATIC`
+              ? `${name} has donated ${singleDonation} PWR`
               : "No donation for this address"}
           </h2>
         </div>

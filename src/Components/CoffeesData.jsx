@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { useEffect, useState } from "react";
 import Coffee from "../artifacts/contracts/Coffee.sol/Coffee.json";
 import { ethers } from "ethers";
@@ -13,7 +14,7 @@ export const CoffeesData = () => {
 
   const getData = async () => {
     const provider = new ethers.providers.JsonRpcProvider(
-      `https://polygon-mumbai.g.alchemy.com/v2/${process.env.REACT_APP_ALCHEMY_KEY}`
+      `https://evmrpc.pwrlabs.io/`
     );
     const contract = new ethers.Contract(
       process.env.REACT_APP_CONTRACT_ADDRESS,
@@ -47,7 +48,7 @@ export const CoffeesData = () => {
             </div>
             <div className="flex items-center justify-end">
               <strong>
-                <img src="matic.png" width={80} />
+                <img src="https://evmexplorer.pwrlabs.io/images/pwr_logo-ee7ead8c34f712cf4076044276ccf618.svg" width={80} />
               </strong>
             </div>
           </div>
@@ -69,7 +70,7 @@ export const CoffeesData = () => {
                     {items.message}
                   </div>
                   <div className="flex items-center justify-end">
-                    {ethers.utils.formatEther(items.amount.toString())} Matic
+                    {ethers.utils.formatEther(items.amount.toString())} PWR
                   </div>
                 </div>
               </div>

@@ -9,12 +9,39 @@ import { DonationForm } from "./Components/DonationForm";
 import { CoffeesData } from "./Components/CoffeesData";
 import { BasicInfo } from "./Components/BasicInfo";
 
-const { chains, provider } = configureChains(
-  [chain.polygonMumbai],
-  [alchemyProvider({ apiKey: process.env.ALCHEMY_ID }), publicProvider()]
-);
+// id: 43_114,
+const pwr = {
+  id: 31,
+  name: "PWR EVM",
+  network: "pwr",
+  iconUrl:
+    "https://evmexplorer.pwrlabs.io/images/pwr_logo-ee7ead8c34f712cf4076044276ccf618.svg",
+  iconBackground: "#fff",
+  nativeCurrency: {
+    decimals: 18,
+    name: "pwr",
+    symbol: "PWR",
+  },
+  rpcUrls: {
+    public: { http: ["https://evmrpc.pwrlabs.io/"] },
+    default: { http: ["https://evmrpc.pwrlabs.io/"] },
+  },
+  blockExplorers: {
+    default: { name: "Blocksout", url: "https://evmexplorer.pwrlabs.io/" },
+    etherscan: { name: "Blocksout", url: "https://evmexplorer.pwrlabs.io/" },
+  },
+  contracts: {
+    multicall3: {
+      address: "0xa9BD070381aaf9D73f7D20390A297CA4F76c37ec",
+      blockCreated: 11_907_934,
+    },
+  },
+  testnet: false,
+};
+
+const { chains, provider } = configureChains([pwr], [publicProvider()]);
 const { connectors } = getDefaultWallets({
-  appName: "My RainbowKit App",
+  appName: "CryptoCoffeeCart",
   chains,
 });
 const wagmiClient = createClient({
