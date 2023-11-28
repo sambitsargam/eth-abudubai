@@ -9,7 +9,6 @@ import { DonationForm } from "./Components/DonationForm";
 import { CoffeesData } from "./Components/CoffeesData";
 import { BasicInfo } from "./Components/BasicInfo";
 
-// id: 43_114,
 const pwr = {
   id: 31,
   name: "PWR EVM",

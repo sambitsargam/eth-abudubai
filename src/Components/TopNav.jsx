@@ -18,6 +18,9 @@ export const TopNav = () => {
         <div style={{margin: "auto 0"}}>
           <ConnectButton/>
         </div>
+        <div style={{ margin: "auto 0" }}>
+          <button className="text-md no-underline text-white hover:text-blue-dark"> <a href="https://evmexplorer.pwrlabs.io/address/0xa9BD070381aaf9D73f7D20390A297CA4F76c37ec/contracts#address-tabs">Verified Contract on Blockscout </a></button>
+        </div>
       </nav>
     </>
   );
